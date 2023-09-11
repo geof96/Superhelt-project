@@ -1,4 +1,3 @@
-import userstory1.Superhero;
 import java.util.List;
 
 public class Main {
