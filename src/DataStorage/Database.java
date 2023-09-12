@@ -2,44 +2,30 @@ package DataStorage;
 
 import information.Superhero;
 
+import java.util.ArrayList;
+
 
 public class Database {
-    private Superhero[] heroList;
-    int count = 0;
-    int maxsize = 5;
-    public Database(){
-        this.heroList = new Superhero[maxsize];
+
+    private ArrayList<Superhero> superheroeslist;
+
+    public Database (){
+        this.superheroeslist = new ArrayList<>();
     }
 
-
-    public void addHero(String name, String realName, String superPower,boolean isHuman, int creationYear, int strength)
-    {
-        if (count <= maxsize) {
-            heroList[count] = new Superhero(name, realName, superPower, isHuman, creationYear, strength);
-            count++;
-        }
+    public void addHero(String name, String realName, String superPower, boolean isHuman, int creationYear, int strength){
+        superheroeslist.add(new Superhero(name, realName, superPower, isHuman, creationYear, strength));
     }
 
-    public String getSuperheroInfo(Superhero superhero) {
-        return "Name: " + superhero.getName() +
-                "\ninformation.Superhero Name: " + superhero.getRealName() +
-                "\nIs Human: " + superhero.isHuman() +
-                "\nCreation Year: " + superhero.getCreationYear() +
-                "\nStrength 0-10: " + superhero.getStrength() + "\n";
+    public ArrayList<Superhero>hentSuperhero(){
+        return superheroeslist;
     }
-
-
-
-    public void printSuperheroDatabase() {
-        System.out.println("Superhero Database:");
-        for (Superhero superhero : heroList) {
-            System.out.println(getSuperheroInfo(superhero));
 
 
         }
-    }
 
-}
+
+
 
 
 

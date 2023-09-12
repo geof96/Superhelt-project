@@ -61,4 +61,8 @@ public class Superhero {
         this.strength = strength;
     }
 
+    public String getSuperPower() {
+
+        return superPower;
+    }
 }
