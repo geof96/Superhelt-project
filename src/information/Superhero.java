@@ -9,7 +9,7 @@ public class Superhero {
     private int strength;
 
 
-    public Superhero(String name, String realName, String superPower,boolean isHuman, int creationYear, int strength) {
+    public Superhero(String name, String realName, String superPower, boolean isHuman, int creationYear, int strength) {
         this.name = name;
         this.realName = realName;
         this.superPower = superPower;
