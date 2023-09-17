@@ -28,6 +28,11 @@ public class Superhero {
         return realName;
     }
 
+    public String getSuperPower() {
+
+        return superPower;
+    }
+
     public boolean isHuman() {
         return isHuman;
     }
@@ -61,8 +66,7 @@ public class Superhero {
         this.strength = strength;
     }
 
-    public String getSuperPower() {
-
-        return superPower;
+    public void setSuperPower(String superPower) {
+        this.superPower = superPower;
     }
 }
