@@ -59,7 +59,7 @@ public class Controller {
     public void editHero(String name,
                          String realName,
                          String superPower,
-                         String newSuperpower, boolean isHuman,
+                         boolean isHuman,
                          int creationYear,
                          int strength) {
         for (Superhero superhero : superheroes) {

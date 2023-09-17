@@ -229,7 +229,7 @@ public class UserInterface {
                     System.out.println("Forkert input! Prøv igen.");
                 }
 
-                controller.editHero(heroToEdit, newName, newRealName, newSuperpower, newIsHuman, newCreationYear, newStrength);
+                controller.editHero(heroToEdit, newName, newRealName, newIsHuman, newCreationYear, newStrength);
             }
         }
     }
