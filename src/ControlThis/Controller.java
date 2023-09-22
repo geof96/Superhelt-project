@@ -21,13 +21,30 @@ public class Controller {
                         int creationYear,
                         int strength) {
 
-        superheroes.add(new Superhero(
+
+        Superhero newHero = new Superhero(
                 name,
                 realName,
                 superPower,
                 isHuman,
                 creationYear,
-                strength));
+                strength);
+        superheroes.add(newHero);
+
+        db.editAddedHero(name,
+                realName,
+                superPower,
+                isHuman,
+                creationYear,
+                strength);
+
+//        superheroes.add(new Superhero(
+//                name,
+//                realName,
+//                superPower,
+//                isHuman,
+//                creationYear,
+//                strength));
     }
 
     public ArrayList<Superhero> hentSuperhero() {
@@ -75,6 +92,11 @@ public class Controller {
         }
 
     }
+
+    public void removeHero(){
+
+    }
+
 }
 
 

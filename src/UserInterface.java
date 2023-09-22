@@ -39,6 +39,7 @@ public class UserInterface {
                 isRunning = scanner.nextInt();
             } catch (Exception e) {
                 System.out.println("Forkert input! Prøv igen.");
+                continue;
             }
 
             scanner.nextLine();
@@ -131,6 +132,7 @@ public class UserInterface {
                     String heroIsFound = scanner.nextLine();
                 } catch (NoSuchElementException e) {
                     System.out.println("Forkert input! Prøv igen.");
+                    continue;
                 }
                 String heroIsFound = null;
                 Superhero foundHero = controller.findSuperhero(heroIsFound);
