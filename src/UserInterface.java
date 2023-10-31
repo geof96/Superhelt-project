@@ -241,6 +241,8 @@ public class UserInterface {
                     System.out.println("Forkert input! Prøv igen.");
                 }
                 controller.heroToRemove(name);
+
+                System.out.println("Superhelten er blevet fjernet.");
             }
         }
     }
