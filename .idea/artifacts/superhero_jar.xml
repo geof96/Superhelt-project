@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="superhero:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/superhero_jar</output-path>
+    <root id="archive" name="superhero.jar">
+      <element id="module-output" name="superhero" />
+    </root>
+  </artifact>
+</component>

@@ -5,11 +5,11 @@ import information.Superhero;
 
 import java.util.ArrayList;
 
-public class Controller {
+public class Register {
     private Database db;
     private ArrayList<Superhero> superheroes;
 
-    public Controller(Database db) {
+    public Register(Database db) {
         this.db = db;
         this.superheroes = db.hentSuperhero();
     }
@@ -93,8 +93,12 @@ public class Controller {
 
     }
 
-    public void removeHero(){
-
+    public void removeHero(String name) {
+        for (Superhero superhero : superheroes) {
+            if (superhero.getName().equalsIgnoreCase(name)) {
+                superheroes.remove(name);
+            }
+        }
     }
 
 }

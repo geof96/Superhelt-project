@@ -1,7 +1,6 @@
 package ControlThis;
 
 import DataStorage.Database;
-import information.Superhero;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -9,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ControllerTest {
-    Controller controller;
+    Register controller;
 
     @BeforeEach
     void setUp() {
@@ -21,7 +20,7 @@ class ControllerTest {
 
     @Test
     void addHero() {
-        controller = new Controller(new Database());
+        controller = new Register(new Database());
         // Arrange: Define hero attributes
         String name = "Superman";
         String realName = "Clark Kent";

@@ -1,6 +1,4 @@
-import DataStorage.Database;
 import information.Superhero;
-import ControlThis.Controller;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -11,10 +9,10 @@ public class UserInterface {
 
 
     public Controller controller;
-    Database database = new Database();
+
 
     public UserInterface() {
-        controller = new Controller(database);
+        controller = new Controller();
     }
 
     //ui.startProgram();
@@ -33,6 +31,7 @@ public class UserInterface {
             System.out.println("3. Søg efter superhelt");
             System.out.println("4. Søg efter flere superhelte");
             System.out.println("5. Redigerer superhelt.");
+            System.out.println("6. Slet superhelt.");
             System.out.println("9. Afslut programmet");
 
             try {
@@ -44,11 +43,12 @@ public class UserInterface {
 
             scanner.nextLine();
 
+            String name = null;
             if (isRunning == 1) {
                 //Opret din superhelt!
 
                 System.out.print("Indtast navnet på Superhelten: ");
-                String name = null;
+                name = null;
                 try {
                     name = scanner.nextLine();
                 } catch (NoSuchElementException e) {
@@ -95,7 +95,7 @@ public class UserInterface {
                 } catch (InputMismatchException e) {
                     System.out.println("Forkert input! Prøv igen.");
                 }
-                controller.addHero(
+                controller.heroAddition(
                         name,
                         realName,
                         superpower,
@@ -105,8 +105,9 @@ public class UserInterface {
                 System.out.println(name + " er blevet registreret!");
 
             } else if (isRunning == 2) {
+
                 // Vis en liste over superhelte
-                ArrayList<Superhero> superheroList = controller.hentSuperhero();
+                ArrayList<Superhero> superheroList = controller.pickedSuperhero();
                 System.out.println("Liste over superhelte:");
                 for (Superhero superhero : superheroList) {
                     System.out.println("Superhelte-navn: " + superhero.getName());
@@ -135,7 +136,7 @@ public class UserInterface {
                     continue;
                 }
                 String heroIsFound = null;
-                Superhero foundHero = controller.findSuperhero(heroIsFound);
+                Superhero foundHero = controller.searchedHero(heroIsFound);
 
                 if (foundHero != null) {
                     System.out.println("Superhelten blev fundet! ");
@@ -159,7 +160,7 @@ public class UserInterface {
                 }
 
                 String heroIsFound = null;
-                ArrayList<Superhero> findHero = controller.findSuperhero2(heroIsFound);
+                ArrayList<Superhero> findHero = controller.searchedHero2(heroIsFound);
                 for (Superhero foundHero : findHero) {
                     if (foundHero != null) {
                         System.out.println("Superhelten blev fundet! ");
@@ -231,7 +232,16 @@ public class UserInterface {
                     System.out.println("Forkert input! Prøv igen.");
                 }
 
-                controller.editHero(heroToEdit, newName, newRealName, newIsHuman, newCreationYear, newStrength);
+                controller.heroEdits(heroToEdit, newName, newRealName, newIsHuman, newCreationYear, newStrength);
+            } else if (isRunning == 6) {
+                System.out.println("Skriv navnet på helten der skal fjernes fra listen.");
+                String removingHero = null;
+                try {
+                    removingHero = scanner.nextLine();
+                } catch (NoSuchElementException e) {
+                    System.out.println("Forkert input! Prøv igen.");
+                }
+                controller.heroToRemove(name);
             }
         }
     }

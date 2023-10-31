@@ -13,13 +13,8 @@ public class Database {
         this.superHeroList = new ArrayList<>();
     }
 
-    public void editAddedHero(
-            String name,
-            String realName,
-            String superPower,
-            boolean isHuman,
-            int creationYear,
-            int strength) {
+    public void editAddedHero(String name, String realName, String superPower,
+                              boolean isHuman, int creationYear, int strength) {
 
         superHeroList.add(new Superhero(
                 name,
@@ -34,10 +29,6 @@ public class Database {
         return superHeroList;
     }
 
-
-public void removeHero(){
-
-    }
 
 }
 
