@@ -94,10 +94,15 @@ public class Register {
     }
 
     public void removeHero(String name) {
+        Superhero removingHero = null;
         for (Superhero superhero : superheroes) {
             if (superhero.getName().equalsIgnoreCase(name)) {
-                superheroes.remove(name);
+                removingHero = superhero;
+                break;
             }
+        }
+        if (removingHero != null){
+            superheroes.remove(removingHero);
         }
     }
 
