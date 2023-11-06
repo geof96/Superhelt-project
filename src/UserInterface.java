@@ -31,6 +31,7 @@ public class UserInterface {
             System.out.println("4. Søg efter flere superhelte");
             System.out.println("5. Redigerer superhelt.");
             System.out.println("6. Slet superhelt.");
+            System.out.println("7. Load registeret superhelte");
             System.out.println("9. Afslut programmet");
 
             try {
@@ -243,6 +244,8 @@ public class UserInterface {
                 controller.heroToRemove(name);
 
                 System.out.println("Superhelten er blevet fjernet.");
+            } else if (isRunning == 7) {
+
             }
         }
     }
