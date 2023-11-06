@@ -1,4 +1,5 @@
 import information.Superhero;
+
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.NoSuchElementException;
@@ -6,9 +7,7 @@ import java.util.Scanner;
 
 public class UserInterface {
 
-
     public Controller controller;
-
 
     public UserInterface() {
         controller = new Controller();
@@ -17,11 +16,9 @@ public class UserInterface {
     //ui.startProgram();
     public void printHeleUserInterface() {
 
-
         //ui.startProgram();
         Scanner scanner = new Scanner(System.in);
         int isRunning = 0;
-
 
         while (isRunning != 9) {
             System.out.println("Velkommen til Marvel universet");
@@ -54,7 +51,6 @@ public class UserInterface {
                 } catch (NoSuchElementException e) {
                     System.out.println("Forkert input! Prøv igen.");
                 }
-
 
                 System.out.print("Indtast det rigtige navn her: ");
                 String realName = null;
@@ -127,7 +123,6 @@ public class UserInterface {
             } else if (isRunning == 3) {
                 //Søg efter en superhelt!
                 System.out.println("Indtast navnet på superhelten: ");
-
 
                 try {
                     String heroIsFound = scanner.nextLine();
