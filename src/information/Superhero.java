@@ -69,4 +69,15 @@ public class Superhero {
     public void setSuperPower(String superPower) {
         this.superPower = superPower;
     }
+
+    @Override
+    public String toString() {
+        return "Superhero: \n" +
+                "name: " + name + "," +
+                "realName: " + realName + "," +
+                "superPower: " + superPower + "," +
+                "isHuman: " + isHuman + "," +
+                "creationYear: " + creationYear + "," +
+                "strength: " + strength;
+    }
 }

@@ -4,7 +4,7 @@ import information.Superhero;
 import java.util.ArrayList;
 
 public class Controller {
-    Register register = new Register(new Database());
+    Register register = new Register();
 
     public Controller() {
         Database database = new Database();
@@ -50,5 +50,9 @@ public class Controller {
 
     public ArrayList<Superhero> pickedSuperhero(){
         return register.hentSuperhero();
+    }
+    public void saveHeroes() {
+        register.saveHeroes();
+
     }
 }

@@ -1,14 +1,40 @@
+package DataStorage;
+
 import information.Superhero;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class FileHandler {
 
+
     File f = new File("superheroRegister.txt");
+
+    public void printSuperhero(ArrayList<Superhero> superheroList) {
+        try {
+            PrintStream output = new PrintStream(f);
+            for (Superhero superhero : superheroList) {
+                if (superhero != null) {
+                    output.println(superhero);
+                }else {
+                    System.out.println("There is no hero registered.");
+                }
+
+            }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+
+    }
+
+
+
 
     public ArrayList<Superhero> recentList() {
         ArrayList<Superhero> information = new ArrayList<>();

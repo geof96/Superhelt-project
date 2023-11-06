@@ -1,11 +1,19 @@
 package ControlThis;
 
 import DataStorage.Database;
+import DataStorage.FileHandler;
 import information.Superhero;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
+
 public class Register {
+
+
+    FileHandler fileHandler = new FileHandler();
+
+
     private Database db;
     private ArrayList<Superhero> superheroes;
 
@@ -106,6 +114,9 @@ public class Register {
         }
     }
 
+    public void saveHeroes() {
+        fileHandler.printSuperhero(superheroes);
+    }
 }
 
 
