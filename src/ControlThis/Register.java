@@ -1,10 +1,8 @@
 package ControlThis;
 
-import DataStorage.Database;
 import DataStorage.FileHandler;
 import information.Superhero;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -13,14 +11,7 @@ public class Register {
 
     FileHandler fileHandler = new FileHandler();
 
-
-    private Database db;
     private ArrayList<Superhero> superheroes;
-
-    public Register(Database db) {
-        this.db = db;
-        this.superheroes = db.hentSuperhero();
-    }
 
     public void addHero(String name,
                         String realName,
@@ -39,24 +30,10 @@ public class Register {
                 strength);
         superheroes.add(newHero);
 
-        db.editAddedHero(name,
-                realName,
-                superPower,
-                isHuman,
-                creationYear,
-                strength);
-
-//        superheroes.add(new Superhero(
-//                name,
-//                realName,
-//                superPower,
-//                isHuman,
-//                creationYear,
-//                strength));
     }
 
     public ArrayList<Superhero> hentSuperhero() {
-        return db.hentSuperhero();
+        return superheroes;
 
     }
 

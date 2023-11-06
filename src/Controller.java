@@ -1,5 +1,4 @@
 import ControlThis.Register;
-import DataStorage.Database;
 import information.Superhero;
 import java.util.ArrayList;
 
