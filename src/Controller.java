@@ -1,13 +1,7 @@
-import ControlThis.Register;
-import information.Superhero;
 import java.util.ArrayList;
 
 public class Controller {
     Register register = new Register();
-
-    public Controller() {
-        Database database = new Database();
-    }
 
 
     public void heroAddition(String name,

@@ -1,15 +1,11 @@
-package ControlThis;
-
-import DataStorage.FileHandler;
-import information.Superhero;
-
 import java.util.ArrayList;
+
 
 
 public class Register {
 
+FileHandler fileHandler = new FileHandler();
 
-    FileHandler fileHandler = new FileHandler();
 
     private ArrayList<Superhero> superheroes;
 

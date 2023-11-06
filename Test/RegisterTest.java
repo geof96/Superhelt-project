@@ -1,5 +1,3 @@
-package ControlThis;
-
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -19,7 +17,7 @@ class ControllerTest {
 
     @Test
     void addHero() {
-        controller = new Register(new Database());
+        controller = new Register();
         // Arrange: Define hero attributes
         String name = "Superman";
         String realName = "Clark Kent";

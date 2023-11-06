@@ -1,5 +1,3 @@
-package information;
-
 public class Superhero {
     private String name;
     private String realName;
