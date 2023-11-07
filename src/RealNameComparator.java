@@ -1,5 +1,3 @@
-package Comparators;
-
 import java.util.Comparator;
 
 public class RealNameComparator implements Comparator<Superhero> {

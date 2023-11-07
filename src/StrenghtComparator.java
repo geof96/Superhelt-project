@@ -1,5 +1,3 @@
-package Comparators;
-
 import java.util.Comparator;
 
 public class StrenghtComparator implements Comparator<Superhero> {
