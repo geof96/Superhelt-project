@@ -236,9 +236,11 @@ public class UserInterface {
                 System.out.println("Superhelten er blevet fjernet.");
 
             } else if (isRunning == 7) {
+                System.out.println("Registreret superhelte blev gemt.");
                 controller.saveHeroes();
 
             } else if (isRunning == 8) {
+                System.out.println("Gemte superheroes er loadet.");
                 controller.loadList();
             }
         }

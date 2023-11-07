@@ -9,11 +9,10 @@ import java.util.Scanner;
 public class FileHandler {
 
 
-    File f = new File(new File("superheroRegister.txt"));
-
+    File f = new File("superheroregister.txt");
     public void printSuperhero(ArrayList<Superhero> superheroList) {
         try {
-            PrintStream output = new PrintStream(f);
+            PrintStream output = new PrintStream(new File("superheroRegister.txt"));
             for (Superhero superhero : superheroList) {
                 if (superhero != null) {
                     output.println(superhero);
