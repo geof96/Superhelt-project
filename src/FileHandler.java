@@ -9,10 +9,10 @@ import java.util.Scanner;
 public class FileHandler {
 
 
-    File f = new File("superheroregister.txt");
+    File f = new File("superheroregister.csv");
     public void printSuperhero(ArrayList<Superhero> superheroList) {
         try {
-            PrintStream output = new PrintStream(new File("superheroRegister.txt"));
+            PrintStream output = new PrintStream("superheroregister.csv");
             for (Superhero superhero : superheroList) {
                 if (superhero != null) {
                     output.println(superhero);
@@ -22,7 +22,7 @@ public class FileHandler {
 
             }
         } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+            System.out.println("File not found!");
         }
 
 

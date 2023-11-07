@@ -32,13 +32,13 @@ public class Controller {
     }
 
     public Superhero searchedHero(String name){
-        register.findSuperhero(name);
-        return null;
+        return register.findSuperhero(name);
+
     }
 
     public ArrayList<Superhero> searchedHero2(String name){
-        register.findSuperhero2(name);
-        return null;
+       return register.findSuperhero2(name);
+
     }
 
     public ArrayList<Superhero> pickedSuperhero(){

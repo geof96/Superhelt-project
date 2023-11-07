@@ -34,12 +34,14 @@ public class Register {
     }
 
 
-    public void findSuperhero(String name) {
+    public Superhero findSuperhero(String name) {
         for (Superhero s : superheroes) {
             if (s.getName().trim().equalsIgnoreCase(name.trim())) {
-                System.out.println(s);
+
+               return s;
             }
         }
+        return null;
     }
 
     public ArrayList<Superhero> findSuperhero2(String name) {
