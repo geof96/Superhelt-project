@@ -1,13 +1,12 @@
 import java.util.ArrayList;
 
 
-
 public class Register {
 
-FileHandler fileHandler = new FileHandler();
+    FileHandler fileHandler = new FileHandler();
 
 
-    private ArrayList<Superhero> superheroes;
+    private ArrayList<Superhero> superheroes = new ArrayList<>();
 
     public void addHero(String name,
                         String realName,
@@ -24,8 +23,9 @@ FileHandler fileHandler = new FileHandler();
                 isHuman,
                 creationYear,
                 strength);
-        superheroes.add(newHero);
-
+        if (newHero != null) {
+            superheroes.add(newHero);
+        }
     }
 
     public ArrayList<Superhero> hentSuperhero() {
@@ -34,13 +34,12 @@ FileHandler fileHandler = new FileHandler();
     }
 
 
-    public Superhero findSuperhero(String name) {
+    public void findSuperhero(String name) {
         for (Superhero s : superheroes) {
-            if (s.getName().equalsIgnoreCase(name)) {
-                return s;
+            if (s.getName().trim().equalsIgnoreCase(name.trim())) {
+                System.out.println(s);
             }
         }
-        return null;
     }
 
     public ArrayList<Superhero> findSuperhero2(String name) {
@@ -82,13 +81,17 @@ FileHandler fileHandler = new FileHandler();
                 break;
             }
         }
-        if (removingHero != null){
+        if (removingHero != null) {
             superheroes.remove(removingHero);
         }
     }
 
     public void saveHeroes() {
         fileHandler.printSuperhero(superheroes);
+    }
+
+    public void loadList(){
+        fileHandler.recentList();
     }
 }
 

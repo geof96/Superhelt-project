@@ -18,16 +18,17 @@ public class UserInterface {
         Scanner scanner = new Scanner(System.in);
         int isRunning = 0;
 
-        while (isRunning != 9) {
+        while (isRunning != 11) {
             System.out.println("Velkommen til Marvel universet");
             System.out.println("1. Opret en superhelt");
             System.out.println("2. Vis liste over superhelte");
             System.out.println("3. Søg efter superhelt");
-            System.out.println("4. Søg efter flere superhelte");
+            System.out.println("4. Søg efter superhelte med samme navn.");
             System.out.println("5. Redigerer superhelt.");
             System.out.println("6. Slet superhelt.");
-            System.out.println("7. Load registeret superhelte");
-            System.out.println("9. Afslut programmet");
+            System.out.println("7. Save registeret superhelte");
+            System.out.println("8. Load tidligere superhelte");
+            System.out.println("11. Afslut programmet");
 
             try {
                 isRunning = scanner.nextInt();
@@ -122,13 +123,9 @@ public class UserInterface {
                 //Søg efter en superhelt!
                 System.out.println("Indtast navnet på superhelten: ");
 
-                try {
-                    String heroIsFound = scanner.nextLine();
-                } catch (NoSuchElementException e) {
-                    System.out.println("Forkert input! Prøv igen.");
-                    continue;
-                }
-                String heroIsFound = null;
+
+                String heroIsFound = scanner.nextLine();
+
                 Superhero foundHero = controller.searchedHero(heroIsFound);
 
                 if (foundHero != null) {
@@ -237,8 +234,12 @@ public class UserInterface {
                 controller.heroToRemove(name);
 
                 System.out.println("Superhelten er blevet fjernet.");
-            } else if (isRunning == 7) {
 
+            } else if (isRunning == 7) {
+                controller.saveHeroes();
+
+            } else if (isRunning == 8) {
+                controller.loadList();
             }
         }
     }

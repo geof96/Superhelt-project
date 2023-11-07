@@ -46,6 +46,9 @@ public class Controller {
     }
     public void saveHeroes() {
         register.saveHeroes();
+    }
 
+    public void loadList(){
+        register.loadList();
     }
 }

@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class FileHandler {
 
 
-    File f = new File("superheroRegister.txt");
+    File f = new File(new File("superheroRegister.txt"));
 
     public void printSuperhero(ArrayList<Superhero> superheroList) {
         try {
