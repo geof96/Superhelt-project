@@ -70,12 +70,11 @@ public class Superhero {
 
     @Override
     public String toString() {
-        return "Superhero: \n" +
-                "name: " + name + "," +
+        return "name: " + name + "," +
                 "realName: " + realName + "," +
                 "superPower: " + superPower + "," +
-                "isHuman: " + isHuman + "," +
-                "creationYear: " + creationYear + "," +
-                "strength: " + strength;
+                "isHuman: " + isHuman + ","
+                + creationYear + ","
+                + strength;
     }
 }

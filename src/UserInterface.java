@@ -13,7 +13,7 @@ public class UserInterface {
 
     //ui.startProgram();
     public void printHeleUserInterface() {
-
+        controller.loadList();
         //ui.startProgram();
         Scanner scanner = new Scanner(System.in);
         int isRunning = 0;
@@ -239,9 +239,8 @@ public class UserInterface {
                 System.out.println("Registreret superhelte blev gemt.");
                 controller.saveHeroes();
 
-            } else if (isRunning == 8) {
-                System.out.println("Gemte superheroes er loadet.");
-                controller.loadList();
+            } else if (isRunning == 11) {
+                controller.saveHeroes();
             }
         }
     }

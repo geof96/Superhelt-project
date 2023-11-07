@@ -42,12 +42,32 @@ public class FileHandler {
                 String line = sc.nextLine();
                 String[] attributer = line.split(",");
                 if (attributer.length == 6) {
+
                     String name = attributer[0].trim();
+
                     String realName = attributer[1].trim();
+
                     String superPower = attributer[2].trim();
+
                     boolean isHuman = Boolean.parseBoolean(attributer[3].trim());
-                    int creationYear = Integer.parseInt(attributer[4].trim());
-                    int strength = Integer.parseInt(attributer[5].trim());
+
+                    int creationYear;
+                    try {
+
+                    creationYear = Integer.parseInt(attributer[4].trim());
+                    }catch (NumberFormatException nfe){
+                        System.out.println("Invalid 'creationYear' value: " + attributer[4]);
+                        continue;
+                    }
+
+                    int strength;
+                    try {
+
+                        strength = Integer.parseInt(attributer[5].trim());
+                    }catch (NumberFormatException nfe){
+                        System.out.println("Invalid input: " + attributer[5]);
+                        continue;
+                    }
                     Superhero indlæsData = new Superhero(
                             name,
                             realName,

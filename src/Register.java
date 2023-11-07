@@ -93,7 +93,7 @@ public class Register {
     }
 
     public void loadList(){
-        fileHandler.recentList();
+        superheroes = fileHandler.recentList();
     }
 }
 
