@@ -19,16 +19,16 @@ public class UserInterface {
         int isRunning = 0;
 
         while (isRunning != 11) {
-            System.out.println("Velkommen til Marvel universet");
-            System.out.println("1. Opret en superhelt");
-            System.out.println("2. Vis liste over superhelte");
-            System.out.println("3. Søg efter superhelt");
+            System.out.println("Velkommen til Marvel universet.");
+            System.out.println("1. Opret en superhelt.");
+            System.out.println("2. Vis liste over superhelte.");
+            System.out.println("3. Søg efter superhelt.");
             System.out.println("4. Søg efter superhelte med samme navn.");
             System.out.println("5. Redigerer superhelt.");
             System.out.println("6. Slet superhelt.");
-            System.out.println("7. Save registeret superhelte");
-            System.out.println("8. Load tidligere superhelte");
-            System.out.println("11. Afslut programmet");
+            System.out.println("7. Save registeret superhelte.");
+            System.out.println("8. Sorter superhelte.");
+            System.out.println("10. Afslut programmet.");
 
             try {
                 isRunning = scanner.nextInt();
@@ -239,9 +239,40 @@ public class UserInterface {
                 System.out.println("Registreret superhelte blev gemt.");
                 controller.saveHeroes();
 
+            } else if (isRunning ==  8) {
+                showMenu();
+                int userInput = 6;
+                while (userInput != 0) {
+                    userInput = scanner.nextInt();
+
+                    switch (userInput) {
+                        case 1 -> controller.name();
+                        case 2 -> controller.realName();
+                        case 3 -> controller.superPower();
+                        case 4 -> controller.isHuman();
+                        case 5 -> controller.creationYear();
+                        case 6 -> controller.strength();
+                    }
+
+
+
+                }
+
+
             } else if (isRunning == 11) {
                 controller.saveHeroes();
             }
         }
+    }
+
+    public void showMenu() {
+        System.out.println("""
+                1) Sort by Name
+                2) Sort by RealName
+                3) Sort by SuperPower
+                4) Sort by IsHuman
+                5) Sort by CreationYear
+                6) Sort by Strength
+                """);
     }
 }

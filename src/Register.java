@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 
 public class Register {
@@ -7,6 +9,7 @@ public class Register {
 
 
     private ArrayList<Superhero> superheroes = new ArrayList<>();
+
 
     public void addHero(String name,
                         String realName,
@@ -25,6 +28,11 @@ public class Register {
                 strength);
         if (newHero != null) {
             superheroes.add(newHero);
+            //harÆndringer = true;
+
+            //Forklaring
+            //Det her fortæller programmet at der er sket ændringer og dataene skal gemmes.
+
         }
     }
 
@@ -90,11 +98,66 @@ public class Register {
 
     public void saveHeroes() {
         fileHandler.printSuperhero(superheroes);
+        /*public void saveHeroes() {
+            if (harÆndringer != true) {
+                fileHandler.printSuperhero(superheroes);
+                harÆndringer = false;
+            }
+        }*/
+        //Forklaring
+        // if (harÆndringer) tjekker om der er sket ændringer i data.
+        // fileHandler.printSuperhero(superheroes) gemmer dataene hvis ændringer er sket.
+        // harÆndringer = false sikrer at dataene kun gemmes én gang indtil der sker flere ændringer i dataene.
     }
 
     public void loadList(){
         superheroes = fileHandler.recentList();
     }
+
+    public void sortByName() {
+        System.out.println("Here is the list sorted by name");
+        Collections.sort(superheroes, new NameComparator());
+        System.out.println((superheroes));
+    }
+
+    public void sortByRealName() {
+        System.out.println("Here is the list sorted by Real name");
+        Collections.sort(superheroes, new RealNameComparator());
+        System.out.println((superheroes));
+    }
+
+    public void sortSuperPower() {
+        System.out.println("Here is the list sorted by SuperPower");
+        Collections.sort(superheroes, new SuperPowerComparator());
+        System.out.println((superheroes));
+    }
+
+    public void sortByIsHuman() {
+        System.out.println("Here is the list sorted by IsHuman");
+        Collections.sort(superheroes, new IsHumanComparator());
+        System.out.println((superheroes));
+    }
+
+    public void sortByCreationYear() {
+        System.out.println("Here is the list sorted by CreationYear");
+        Collections.sort(superheroes, new CreationYearComparator());
+        System.out.println((superheroes));
+    }
+
+    public void sortByStrength() {
+        System.out.println("Here is the list sorted by Strength");
+        Collections.sort(superheroes, new StrenghtComparator());
+        System.out.println((superheroes));
+    }
+
+
+
+    //private boolean harÆndringer = false;
+
+// Forklaring på hvorfor
+    //Hvis den er true så er der ændringer og dataene gemmes.
+    // Hvis den er false så er der ingen ændringer og dataene forbliver uændret.
+
 }
 
 

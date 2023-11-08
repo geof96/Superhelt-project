@@ -51,4 +51,26 @@ public class Controller {
     public void loadList(){
         register.loadList();
     }
+    public void name() {
+        register.sortByName();
+    }
+
+    public void realName(){
+        register.sortByRealName();
+    }
+
+    public void superPower(){
+        register.sortSuperPower();
+    }
+
+    public void isHuman(){
+        register.sortByIsHuman();
+    }
+    public void creationYear(){
+        register.sortByCreationYear();
+    }
+
+    public void strength(){
+        register.sortByStrength();
+    }
 }
