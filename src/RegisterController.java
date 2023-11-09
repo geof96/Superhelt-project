@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 public class RegisterController {
     Register register = new Register();
+    private boolean isChanged = false;
 
 
     public void heroAddition(String name,
@@ -10,6 +11,7 @@ public class RegisterController {
                              boolean isHuman,
                              int creationYear,
                              int strength){
+        isChanged = true;
         register.addHero(
                 name,
                 realName,
@@ -24,10 +26,12 @@ public class RegisterController {
                           boolean isHuman,
                           int creationYear,
                           int strength){
+        isChanged = true;
         register.editHero(name, realName, superPower, isHuman, creationYear, strength);
     }
 
     public void heroToRemove(String name){
+        isChanged = true;
         register.removeHero(name);
     }
 
@@ -76,5 +80,11 @@ public class RegisterController {
 
     public void saveToFile(){
         register.saveToFile();
+    }
+
+    public void exit(){
+        if (isChanged){
+            register.saveHeroes();
+        }
     }
 }

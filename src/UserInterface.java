@@ -7,6 +7,7 @@ public class UserInterface {
 
     public RegisterController registerController;
 
+
     public UserInterface() {
         registerController = new RegisterController();
     }
@@ -250,7 +251,7 @@ public class UserInterface {
                 System.out.println("Registreret superhelte blev gemt.");
                 registerController.saveHeroes();
 
-            } else if (isRunning ==  8) {
+            } else if (isRunning == 8) {
                 showMenu();
                 int userInput = 6;
                 while (userInput != 0) {
@@ -266,12 +267,14 @@ public class UserInterface {
                     }
 
 
-
                 }
 
 
             } else if (isRunning == 10) {
-                registerController.saveHeroes();
+                registerController.exit();
+
+
+
             }
         }
     }

@@ -136,6 +136,8 @@ public class Register {
         Collections.sort(superheroes, new StrenghtComparator());
         System.out.println((superheroes));
     }
+
+    public void sortByStren
 }
 
 
