@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Controller {
+public class RegisterController {
     Register register = new Register();
 
 

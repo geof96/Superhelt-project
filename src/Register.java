@@ -110,8 +110,12 @@ public class Register {
         // harÆndringer = false sikrer at dataene kun gemmes én gang indtil der sker flere ændringer i dataene.
     }
 
+    public void saveToFile() {
+        fileHandler.saveToFile();
+    }
+
     public void loadList(){
-        superheroes = fileHandler.recentList();
+        superheroes = fileHandler.loadToFile();
     }
 
     public void sortByName() {

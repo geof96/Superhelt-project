@@ -5,15 +5,15 @@ import java.util.Scanner;
 
 public class UserInterface {
 
-    public Controller controller;
+    public RegisterController registerController;
 
     public UserInterface() {
-        controller = new Controller();
+        registerController = new RegisterController();
     }
 
     //ui.startProgram();
     public void printHeleUserInterface() {
-        controller.loadList();
+        registerController.loadList();
         //ui.startProgram();
         Scanner scanner = new Scanner(System.in);
         int isRunning = 0;
@@ -90,7 +90,7 @@ public class UserInterface {
                 } catch (InputMismatchException e) {
                     System.out.println("Forkert input! Prøv igen.");
                 }
-                controller.heroAddition(
+                registerController.heroAddition(
                         name,
                         realName,
                         superpower,
@@ -102,7 +102,7 @@ public class UserInterface {
             } else if (isRunning == 2) {
 
                 // Vis en liste over superhelte
-                ArrayList<Superhero> superheroList = controller.pickedSuperhero();
+                ArrayList<Superhero> superheroList = registerController.pickedSuperhero();
                 System.out.println("Liste over superhelte:");
                 for (Superhero superhero : superheroList) {
                     System.out.println("Superhelte-navn: " + superhero.getName());
@@ -126,7 +126,7 @@ public class UserInterface {
 
                 String heroIsFound = scanner.nextLine();
 
-                Superhero foundHero = controller.searchedHero(heroIsFound);
+                Superhero foundHero = registerController.searchedHero(heroIsFound);
 
                 if (foundHero != null) {
                     System.out.println("Superhelten blev fundet! ");
@@ -150,7 +150,7 @@ public class UserInterface {
                 }
 
                 String heroIsFound = null;
-                ArrayList<Superhero> findHero = controller.searchedHero2(heroIsFound);
+                ArrayList<Superhero> findHero = registerController.searchedHero2(heroIsFound);
                 for (Superhero foundHero : findHero) {
                     if (foundHero != null) {
                         System.out.println("Superhelten blev fundet! ");
@@ -222,7 +222,7 @@ public class UserInterface {
                     System.out.println("Forkert input! Prøv igen.");
                 }
 
-                controller.heroEdits(heroToEdit, newName, newRealName, newIsHuman, newCreationYear, newStrength);
+                registerController.heroEdits(heroToEdit, newName, newRealName, newIsHuman, newCreationYear, newStrength);
             } else if (isRunning == 6) {
                 System.out.println("Skriv navnet på helten der skal fjernes fra listen.");
                 String removingHero = null;
@@ -231,13 +231,13 @@ public class UserInterface {
                 } catch (NoSuchElementException e) {
                     System.out.println("Forkert input! Prøv igen.");
                 }
-                controller.heroToRemove(name);
+                registerController.heroToRemove(name);
 
                 System.out.println("Superhelten er blevet fjernet.");
 
             } else if (isRunning == 7) {
                 System.out.println("Registreret superhelte blev gemt.");
-                controller.saveHeroes();
+                registerController.saveHeroes();
 
             } else if (isRunning ==  8) {
                 showMenu();
@@ -246,12 +246,12 @@ public class UserInterface {
                     userInput = scanner.nextInt();
 
                     switch (userInput) {
-                        case 1 -> controller.name();
-                        case 2 -> controller.realName();
-                        case 3 -> controller.superPower();
-                        case 4 -> controller.isHuman();
-                        case 5 -> controller.creationYear();
-                        case 6 -> controller.strength();
+                        case 1 -> registerController.name();
+                        case 2 -> registerController.realName();
+                        case 3 -> registerController.superPower();
+                        case 4 -> registerController.isHuman();
+                        case 5 -> registerController.creationYear();
+                        case 6 -> registerController.strength();
                     }
 
 
@@ -260,7 +260,7 @@ public class UserInterface {
 
 
             } else if (isRunning == 11) {
-                controller.saveHeroes();
+                registerController.saveHeroes();
             }
         }
     }

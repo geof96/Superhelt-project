@@ -8,11 +8,12 @@ import java.util.Scanner;
 
 public class FileHandler {
 
+    private File f = new File("superheroregister.csv");
+    private ArrayList<Superhero> superheroes = new ArrayList<>();
 
-    File f = new File("superheroregister.csv");
     public void printSuperhero(ArrayList<Superhero> superheroList) {
         try {
-            PrintStream output = new PrintStream("superheroregister.csv");
+            PrintStream output = new PrintStream(f);
             for (Superhero superhero : superheroList) {
                 if (superhero != null) {
                     output.println(superhero);
@@ -24,14 +25,28 @@ public class FileHandler {
         } catch (FileNotFoundException e) {
             System.out.println("File not found!");
         }
-
-
     }
 
 
+    public void saveToFile() {
+        try {
+            PrintStream output = new PrintStream(f);
+            for (Superhero superhero : superheroes) {
+                output.println(superhero.getName() + ',' +
+                        superhero.getRealName() + ',' +
+                        superhero.getSuperPower() + ',' +
+                        superhero.getCreationYear() + ',' +
+                        superhero.getStrength() + ',' +
+                        superhero.isHuman());
+            }
+            output.close();
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 
-    public ArrayList<Superhero> recentList() {
+    public ArrayList<Superhero> loadToFile() {
         ArrayList<Superhero> information = new ArrayList<>();
 
         try {
@@ -50,24 +65,12 @@ public class FileHandler {
                     String superPower = attributer[2].trim();
 
                     boolean isHuman = Boolean.parseBoolean(attributer[3].trim());
-
                     int creationYear;
-                    try {
-
                     creationYear = Integer.parseInt(attributer[4].trim());
-                    }catch (NumberFormatException nfe){
-                        System.out.println("Invalid 'creationYear' value: " + attributer[4]);
-                        continue;
-                    }
-
                     int strength;
-                    try {
 
-                        strength = Integer.parseInt(attributer[5].trim());
-                    }catch (NumberFormatException nfe){
-                        System.out.println("Invalid input: " + attributer[5]);
-                        continue;
-                    }
+                    strength = Integer.parseInt(attributer[5].trim());
+
                     Superhero indlæsData = new Superhero(
                             name,
                             realName,
@@ -88,5 +91,6 @@ public class FileHandler {
         }
         return information;
     }
+
 
 }
