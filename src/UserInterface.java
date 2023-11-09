@@ -11,6 +11,17 @@ public class UserInterface {
         registerController = new RegisterController();
     }
 
+    public void showMenu() {
+        System.out.println("""
+                1) Sort by Name
+                2) Sort by RealName
+                3) Sort by SuperPower
+                4) Sort by IsHuman
+                5) Sort by CreationYear
+                6) Sort by Strength
+                """);
+    }
+
     //ui.startProgram();
     public void printHeleUserInterface() {
         registerController.loadList();
@@ -18,7 +29,7 @@ public class UserInterface {
         Scanner scanner = new Scanner(System.in);
         int isRunning = 0;
 
-        while (isRunning != 11) {
+        while (isRunning != 10) {
             System.out.println("Velkommen til Marvel universet.");
             System.out.println("1. Opret en superhelt.");
             System.out.println("2. Vis liste over superhelte.");
@@ -259,20 +270,9 @@ public class UserInterface {
                 }
 
 
-            } else if (isRunning == 11) {
+            } else if (isRunning == 10) {
                 registerController.saveHeroes();
             }
         }
-    }
-
-    public void showMenu() {
-        System.out.println("""
-                1) Sort by Name
-                2) Sort by RealName
-                3) Sort by SuperPower
-                4) Sort by IsHuman
-                5) Sort by CreationYear
-                6) Sort by Strength
-                """);
     }
 }

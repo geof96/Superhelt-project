@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 
 
@@ -28,17 +27,11 @@ public class Register {
                 strength);
         if (newHero != null) {
             superheroes.add(newHero);
-            //harÆndringer = true;
-
-            //Forklaring
-            //Det her fortæller programmet at der er sket ændringer og dataene skal gemmes.
-
         }
     }
 
     public ArrayList<Superhero> hentSuperhero() {
         return superheroes;
-
     }
 
 
@@ -98,16 +91,6 @@ public class Register {
 
     public void saveHeroes() {
         fileHandler.printSuperhero(superheroes);
-        /*public void saveHeroes() {
-            if (harÆndringer != true) {
-                fileHandler.printSuperhero(superheroes);
-                harÆndringer = false;
-            }
-        }*/
-        //Forklaring
-        // if (harÆndringer) tjekker om der er sket ændringer i data.
-        // fileHandler.printSuperhero(superheroes) gemmer dataene hvis ændringer er sket.
-        // harÆndringer = false sikrer at dataene kun gemmes én gang indtil der sker flere ændringer i dataene.
     }
 
     public void saveToFile() {
@@ -153,15 +136,6 @@ public class Register {
         Collections.sort(superheroes, new StrenghtComparator());
         System.out.println((superheroes));
     }
-
-
-
-    //private boolean harÆndringer = false;
-
-// Forklaring på hvorfor
-    //Hvis den er true så er der ændringer og dataene gemmes.
-    // Hvis den er false så er der ingen ændringer og dataene forbliver uændret.
-
 }
 
 

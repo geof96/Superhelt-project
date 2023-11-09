@@ -73,4 +73,8 @@ public class RegisterController {
     public void strength(){
         register.sortByStrength();
     }
+
+    public void saveToFile(){
+        register.saveToFile();
+    }
 }

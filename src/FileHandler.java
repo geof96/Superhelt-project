@@ -52,7 +52,7 @@ public class FileHandler {
         try {
             Scanner sc = new Scanner(f, StandardCharsets.ISO_8859_1);
 
-            sc.nextLine();
+            //sc.nextLine();
             while (sc.hasNextLine()) {
                 String line = sc.nextLine();
                 String[] attributer = line.split(",");
