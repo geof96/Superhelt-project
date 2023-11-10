@@ -1,3 +1,5 @@
+package superhero;
+
 import java.util.ArrayList;
 
 public class RegisterController {
@@ -10,7 +12,7 @@ public class RegisterController {
                              String superPower,
                              boolean isHuman,
                              int creationYear,
-                             int strength){
+                             int strength) {
         isChanged = true;
         register.addHero(
                 name,
@@ -25,65 +27,70 @@ public class RegisterController {
                           String superPower,
                           boolean isHuman,
                           int creationYear,
-                          int strength){
+                          int strength) {
         isChanged = true;
         register.editHero(name, realName, superPower, isHuman, creationYear, strength);
     }
 
-    public void heroToRemove(String name){
+    public void heroToRemove(String name) {
         isChanged = true;
         register.removeHero(name);
     }
 
-    public Superhero searchedHero(String name){
+    public Superhero searchedHero(String name) {
         return register.findSuperhero(name);
 
     }
 
-    public ArrayList<Superhero> searchedHero2(String name){
-       return register.findSuperhero2(name);
+    public ArrayList<Superhero> searchedHero2(String name) {
+        return register.findSuperhero2(name);
 
     }
 
-    public ArrayList<Superhero> pickedSuperhero(){
+    public ArrayList<Superhero> pickedSuperhero() {
         return register.hentSuperhero();
     }
+
     public void saveHeroes() {
         register.saveHeroes();
     }
 
-    public void loadList(){
+    public void loadList() {
         register.loadList();
     }
+
+    //Sortering for 1 attribut.
     public void name() {
         register.sortByName();
     }
 
-    public void realName(){
+    public void realName() {
         register.sortByRealName();
     }
 
-    public void superPower(){
+    public void superPower() {
         register.sortSuperPower();
     }
 
-    public void isHuman(){
+    public void isHuman() {
         register.sortByIsHuman();
     }
-    public void creationYear(){
+
+    public void creationYear() {
         register.sortByCreationYear();
     }
 
-    public void strength(){
+    public void strength() {
         register.sortByStrength();
     }
 
-    public void saveToFile(){
-        register.saveToFile();
+    //Sortering for 2 attributer
+    public void sortBy2(String comparator1, String comparator2) {
+        register.sortByTwoAttributes(comparator1, comparator2);
     }
 
-    public void exit(){
-        if (isChanged){
+    public void exit() {
+        if (isChanged) {
             register.saveHeroes();
         }
     }

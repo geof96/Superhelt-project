@@ -1,3 +1,5 @@
+package superhero;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -9,7 +11,6 @@ import java.util.Scanner;
 public class FileHandler {
 
     private File f = new File("superheroregister.csv");
-    private ArrayList<Superhero> superheroes = new ArrayList<>();
 
     public void printSuperhero(ArrayList<Superhero> superheroList) {
         try {
@@ -17,7 +18,7 @@ public class FileHandler {
             for (Superhero superhero : superheroList) {
                 if (superhero != null) {
                     output.println(superhero);
-                }else {
+                } else {
                     System.out.println("There is no hero registered.");
                 }
 
@@ -27,32 +28,12 @@ public class FileHandler {
         }
     }
 
-
-    public void saveToFile() {
-        try {
-            PrintStream output = new PrintStream(f);
-            for (Superhero superhero : superheroes) {
-                output.println(superhero.getName() + ',' +
-                        superhero.getRealName() + ',' +
-                        superhero.getSuperPower() + ',' +
-                        superhero.getCreationYear() + ',' +
-                        superhero.getStrength() + ',' +
-                        superhero.isHuman());
-            }
-            output.close();
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-
-    public ArrayList<Superhero> loadToFile() {
+    public ArrayList<Superhero> loadFromFile() {
         ArrayList<Superhero> information = new ArrayList<>();
 
         try {
             Scanner sc = new Scanner(f, StandardCharsets.ISO_8859_1);
 
-            //sc.nextLine();
             while (sc.hasNextLine()) {
                 String line = sc.nextLine();
                 String[] attributer = line.split(",");
@@ -65,10 +46,11 @@ public class FileHandler {
                     String superPower = attributer[2].trim();
 
                     boolean isHuman = Boolean.parseBoolean(attributer[3].trim());
+
                     int creationYear;
                     creationYear = Integer.parseInt(attributer[4].trim());
-                    int strength;
 
+                    int strength;
                     strength = Integer.parseInt(attributer[5].trim());
 
                     Superhero indlæsData = new Superhero(
@@ -91,6 +73,4 @@ public class FileHandler {
         }
         return information;
     }
-
-
 }

@@ -1,12 +1,15 @@
+package superhero;
+
+import superhero.comparators.*;
+
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
 
 public class Register {
 
     FileHandler fileHandler = new FileHandler();
-
-
     private ArrayList<Superhero> superheroes = new ArrayList<>();
 
 
@@ -39,7 +42,7 @@ public class Register {
         for (Superhero s : superheroes) {
             if (s.getName().trim().equalsIgnoreCase(name.trim())) {
 
-               return s;
+                return s;
             }
         }
         return null;
@@ -93,12 +96,8 @@ public class Register {
         fileHandler.printSuperhero(superheroes);
     }
 
-    public void saveToFile() {
-        fileHandler.saveToFile();
-    }
-
-    public void loadList(){
-        superheroes = fileHandler.loadToFile();
+    public void loadList() {
+        superheroes = fileHandler.loadFromFile();
     }
 
     public void sortByName() {
@@ -137,7 +136,40 @@ public class Register {
         System.out.println((superheroes));
     }
 
-    public void sortByStren
+    public void sortByTwoAttributes(String comparator1, String comparator2) {
+        Comparator comp1 = null;
+        Comparator comp2 = null;
+
+        if (comparator1.equalsIgnoreCase("SuperHero name")) {
+            comp1 = new NameComparator();
+        } else if (comparator1.equalsIgnoreCase("real name")) {
+            comp1 = new RealNameComparator();
+        } else if (comparator1.equalsIgnoreCase("Super Power")) {
+            comp1 = new SuperPowerComparator();
+        } else if (comparator1.equalsIgnoreCase("Human")) {
+            comp1 = new IsHumanComparator();
+        } else if (comparator1.equalsIgnoreCase("Creation year")) {
+            comp1 = new CreationYearComparator();
+        } else if (comparator1.equalsIgnoreCase("Strength")) {
+            comp1 = new StrenghtComparator();
+        }
+
+        if (comparator2.equalsIgnoreCase("SuperHero name")) {
+            comp2 = new NameComparator();
+        } else if (comparator2.equalsIgnoreCase("real name")) {
+            comp2 = new RealNameComparator();
+        } else if (comparator2.equalsIgnoreCase("Super Power")) {
+            comp2 = new SuperPowerComparator();
+        } else if (comparator2.equalsIgnoreCase("Human")) {
+            comp2 = new IsHumanComparator();
+        } else if (comparator2.equalsIgnoreCase("Creation year")) {
+            comp2 = new CreationYearComparator();
+        } else if (comparator2.equalsIgnoreCase("Strength")) {
+            comp2 = new StrenghtComparator();
+        }
+        Collections.sort(superheroes, comp1.thenComparing(comp2));
+        System.out.println(superheroes);
+    }
 }
 
 

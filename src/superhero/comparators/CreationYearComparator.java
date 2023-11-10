@@ -1,3 +1,7 @@
+package superhero.comparators;
+
+import superhero.Superhero;
+
 import java.util.Comparator;
 
 public class CreationYearComparator implements Comparator<Superhero> {
@@ -6,4 +10,4 @@ public class CreationYearComparator implements Comparator<Superhero> {
     public int compare(Superhero d1, Superhero d2) {
         return d1.getCreationYear() - d2.getCreationYear();
     }
-        }
+}
